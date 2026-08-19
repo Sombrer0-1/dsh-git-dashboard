@@ -23,6 +23,10 @@ DeepSeek Harness（`dsh`）的仓外只读 Git 工作区看板。安装到 web p
 
 ## 安装
 
+**不必 clone 本仓库。** 在 web profile 里 `pnpm add` 安装即可；发布包内已带 `lib/` 构建产物，profile 直接加载，无需本地编译。
+
+clone 仅用于阅读源码、提 issue 或自行 fork 开发；与「给 dsh 装插件」无关。
+
 在 web profile 目录安装本包：
 
 ```sh
@@ -65,6 +69,8 @@ cd ~/.dsh/profiles/web/node_modules/dsh-git-dashboard
 node scripts/link-runtime-deps.mjs
 ```
 
+`link-runtime-deps.mjs` 把 Host 侧 peer 链到 `$DSH_HOME/profiles/node_modules`：Windows 创建目录 junction（`mklink /J`），macOS / Linux 创建目录符号链接。仅当 Node 从插件真实路径解析依赖、走不到 profile 的 `node_modules` 时才需要（常见于 `pnpm add` 指向 git 仓库或 `link:` 路径）。
+
 验证并重启：
 
 ```sh
@@ -98,13 +104,16 @@ dsh --profile web --dump-config
 
 ## 仓库内容
 
+Git 仓库含源码与文档；`pnpm add` 装进 profile 的 npm 包按 `package.json#files` 发布，**不含** `src/`、`tests/`、`docs/`（运行时只读 `lib/`）。
+
 | 路径 | 说明 |
 |---|---|
-| `src/` | Host + Client 源码 |
-| `lib/` | 已构建产物（运行时加载这里） |
+| `lib/` | 构建产物；**安装后 profile 加载这里** |
 | `cordis.patch.yml` | 插入插件行 |
-| `scripts/link-runtime-deps.mjs` | 安装后链接 Host 依赖 |
-| `docs/sdd.zh.md` | 设计草案（以本 README 为准） |
+| `scripts/link-runtime-deps.mjs` | 按需链接 Host peer（见安装节） |
+| `src/` | 源码（仅 git 仓库；npm 包不含） |
+| `tests/` | 单测（仅 git 仓库） |
+| `docs/` | 截图与设计草案（仅 git 仓库） |
 
 ## License
 
