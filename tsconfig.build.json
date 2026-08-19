@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "incremental": false,
+    "noResolve": true,
+    "noCheck": true,
+    "noEmit": false,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "outDir": "lib"
+  },
+  "include": ["src/index.ts", "src/types.ts", "src/remote.ts", "src/git/**/*.ts"],
+  "exclude": ["src/client/**"]
+}

@@ -1,0 +1,131 @@
+/** `git-dashboard` namespace dictionaries. */
+
+/** Dictionary namespace owned by this plugin. */
+export const NS = 'git-dashboard'
+
+/** Simplified Chinese dictionary (the key-set source of truth). */
+export const zh = {
+  'trigger.files': '{count} 个文件',
+  'trigger.aria': 'Git 工作区：{branch}',
+
+  'panel.aria': 'Git 工作区看板',
+  'panel.title': 'Git 工作区',
+  'panel.repository': '仓库',
+  'panel.scope': '范围',
+  'panel.head': 'HEAD',
+  'panel.upstream': '上游',
+  'panel.noUpstream': '未设置上游',
+  'panel.diffHint': '点击文件可预览相对 HEAD 的小改动；过大差异请在本机 Git 工具查看',
+  'panel.observedAt': '更新于 {time}',
+  'panel.stats.staged': '已暂存 {count}',
+  'panel.stats.unstaged': '未暂存 {count}',
+  'panel.stats.untracked': '未跟踪 {count}',
+  'panel.stats.conflicts': '冲突 {count}',
+  'panel.stats.lines': '+{additions}/−{deletions}',
+  'panel.truncated': '列表已截断，完整变更请在本机 Git 工具中查看',
+  'panel.empty': '工作区干净',
+  'panel.error': '无法读取 Git 状态',
+  'panel.retry': '重试',
+  'panel.refresh': '刷新',
+  'panel.refreshing': '刷新中…',
+  'panel.openFolder': '在文件夹中打开',
+
+  'compare.title': '分支比较',
+  'compare.selectBase': '选择基准分支',
+  'compare.aheadBehind': '领先 {ahead} · 落后 {behind}',
+  'compare.noBranches': '没有可比较的分支',
+  'compare.loading': '比较中…',
+  'compare.expand': '展开分支比较',
+  'compare.collapse': '收起分支比较',
+
+  'status.staged': '已暂存',
+  'status.unstaged': '未暂存',
+  'status.untracked': '未跟踪',
+  'status.conflict': '冲突',
+  'status.binary': '二进制',
+
+  'file.openDiff': '预览 {path} 的差异',
+  'diff.aria': '文件差异预览',
+  'diff.title': '相对 HEAD',
+  'diff.loading': '加载差异…',
+  'diff.close': '关闭',
+  'diff.copy': '复制差异',
+  'diff.copied': '已复制',
+  'diff.empty': '相对 HEAD 无差异',
+  'diff.error': '无法加载差异',
+  'diff.tooLarge.lines': '变更约 {additions}/{deletions} 行，过大不预览',
+  'diff.tooLarge.bytes': '差异内容过大，不预览',
+  'diff.tooLarge.binary': '二进制文件，不预览',
+  'diff.unsupported.untracked': '未跟踪文件不提供预览',
+  'diff.unsupported.conflict': '冲突文件请在本机工具中查看',
+  'diff.unsupported.unsafe-path': '路径不安全，已拒绝预览',
+  'diff.unmodified': '{count} 行未修改',
+  'diff.collapse': '收起 {count} 行未修改',
+
+  'stale.label': '数据可能已过期',
+} as const
+
+/** English dictionary, key-identical to the Chinese source of truth. */
+export const en: Record<GitDashboardKey, string> = {
+  'trigger.files': '{count} files',
+  'trigger.aria': 'Git workspace: {branch}',
+
+  'panel.aria': 'Git workspace dashboard',
+  'panel.title': 'Git workspace',
+  'panel.repository': 'Repository',
+  'panel.scope': 'Scope',
+  'panel.head': 'HEAD',
+  'panel.upstream': 'Upstream',
+  'panel.noUpstream': 'No upstream configured',
+  'panel.diffHint': 'Click a file to preview small diffs vs HEAD; open local Git tools for large changes',
+  'panel.observedAt': 'Updated {time}',
+  'panel.stats.staged': 'Staged {count}',
+  'panel.stats.unstaged': 'Unstaged {count}',
+  'panel.stats.untracked': 'Untracked {count}',
+  'panel.stats.conflicts': 'Conflicts {count}',
+  'panel.stats.lines': '+{additions}/−{deletions}',
+  'panel.truncated': 'List truncated — open your local Git tools for the full diff',
+  'panel.empty': 'Working tree clean',
+  'panel.error': 'Could not read Git status',
+  'panel.retry': 'Retry',
+  'panel.refresh': 'Refresh',
+  'panel.refreshing': 'Refreshing…',
+  'panel.openFolder': 'Open in folder',
+
+  'compare.title': 'Branch compare',
+  'compare.selectBase': 'Select base branch',
+  'compare.aheadBehind': '{ahead} ahead · {behind} behind',
+  'compare.noBranches': 'No branches to compare',
+  'compare.loading': 'Comparing…',
+  'compare.expand': 'Expand branch compare',
+  'compare.collapse': 'Collapse branch compare',
+
+  'status.staged': 'Staged',
+  'status.unstaged': 'Unstaged',
+  'status.untracked': 'Untracked',
+  'status.conflict': 'Conflict',
+  'status.binary': 'Binary',
+
+  'file.openDiff': 'Preview diff for {path}',
+  'diff.aria': 'File diff preview',
+  'diff.title': 'Versus HEAD',
+  'diff.loading': 'Loading diff…',
+  'diff.close': 'Close',
+  'diff.copy': 'Copy diff',
+  'diff.copied': 'Copied',
+  'diff.empty': 'No difference versus HEAD',
+  'diff.error': 'Could not load diff',
+  'diff.tooLarge.lines': 'About +{additions}/−{deletions} lines — too large to preview',
+  'diff.tooLarge.bytes': 'Diff payload too large to preview',
+  'diff.tooLarge.binary': 'Binary file — no preview',
+  'diff.unsupported.untracked': 'Untracked files are not previewed',
+  'diff.unsupported.conflict': 'Open local tools for conflicted files',
+  'diff.unsupported.unsafe-path': 'Unsafe path — preview refused',
+  'diff.unmodified': '{count} unmodified lines',
+  'diff.collapse': 'Collapse {count} unmodified lines',
+
+  'stale.label': 'Data may be stale',
+}
+
+/** Key domain of the `git-dashboard` namespace (zh is the source of truth). */
+export type GitDashboardKey = keyof typeof zh

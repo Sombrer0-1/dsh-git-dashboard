@@ -1,0 +1,12 @@
+- insert:
+    - id: git-dashboard
+      name: dsh-git-dashboard
+      config:
+        command: git
+        timeoutMs: 2000
+        maxStatusBytes: 1048576
+        maxNumstatBytes: 524288
+        maxFiles: 100
+        maxBranches: 100
+        maxDiffBytes: 262144
+        maxDiffChangedLines: 500

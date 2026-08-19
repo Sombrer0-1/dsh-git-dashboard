@@ -1,0 +1,205 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-height: 0;
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: none;
+  padding: 2px 2px 12px;
+  border-bottom: 1px solid var(--dsw-alias-border-l1);
+}
+
+.headerMain {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.path {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--dsw-alias-label-primary);
+  font-family: var(--dsw-font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  direction: rtl;
+  text-align: left;
+}
+
+.delta {
+  flex: none;
+  font-family: var(--dsw-font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.deltaAdd {
+  color: var(--dsw-alias-state-success-primary);
+  font-weight: 600;
+}
+
+.deltaDel {
+  color: var(--dsw-alias-state-error-primary);
+  font-weight: 600;
+}
+
+.headerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dsw-alias-label-tertiary);
+  cursor: pointer;
+  outline: none;
+}
+
+.iconButton:hover,
+.iconButton:focus-visible {
+  background: var(--dsw-alias-fill-l2);
+  color: var(--dsw-alias-label-primary);
+}
+
+.body {
+  flex: 1;
+  min-height: 240px;
+  margin-top: 12px;
+  overflow: auto;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-specific-menu);
+  font-family: var(--dsw-font-mono);
+  font-size: 12px;
+  line-height: 20px;
+  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
+  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+}
+
+.hunk {
+  padding: 4px 12px 4px 8px;
+  color: var(--dsw-alias-label-secondary);
+  background: var(--dsw-alias-fill-l2);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.rowAdd,
+.rowDel,
+.rowContext {
+  display: grid;
+  grid-template-columns: 44px 44px 16px minmax(0, 1fr);
+  column-gap: 0;
+  align-items: stretch;
+  min-height: 20px;
+}
+
+.gutterOld,
+.gutterNew {
+  box-sizing: border-box;
+  padding: 0 8px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.marker {
+  text-align: center;
+  user-select: none;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.code {
+  padding: 0 12px 0 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--dsw-alias-label-primary);
+}
+
+.rowContext .gutterOld,
+.rowContext .gutterNew {
+  background: transparent;
+}
+
+.rowAdd {
+  background: color-mix(in srgb, var(--dsw-alias-state-success-primary) 10%, transparent);
+}
+
+.rowAdd .gutterOld,
+.rowAdd .gutterNew,
+.rowAdd .marker {
+  background: color-mix(in srgb, var(--dsw-alias-state-success-primary) 14%, transparent);
+  color: var(--dsw-alias-state-success-primary);
+}
+
+.rowDel {
+  background: color-mix(in srgb, var(--dsw-alias-state-error-primary) 10%, transparent);
+}
+
+.rowDel .gutterOld,
+.rowDel .gutterNew,
+.rowDel .marker {
+  background: color-mix(in srgb, var(--dsw-alias-state-error-primary) 14%, transparent);
+  color: var(--dsw-alias-state-error-primary);
+}
+
+.collapseBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: calc(100% - 16px);
+  min-height: 28px;
+  margin: 6px 8px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--dsw-alias-fill-l2);
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.collapseBar:hover,
+.collapseBar:focus-visible {
+  background: var(--dsw-alias-fill-l1);
+  color: var(--dsw-alias-label-primary);
+}
+
+.collapseIcons {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.collapseIcons svg {
+  display: block;
+}
