@@ -1,14 +1,15 @@
 /**
- * Build the browser ModuleLoader client bundle via the repo's clientBundle preset.
- * Usage (repo root):
- *   node --import tsx/esm tmp/dsh-git-dashboard/packages/dsh-git-dashboard/scripts/build-client.mjs
+ * Build the browser ModuleLoader client bundle.
+ * Requires a deepseek-harness checkout that provides `packages/client/tsdown.client.ts`
+ * (override with `DSH_CLIENT_PRESET` if the relative path does not match your layout).
  */
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { build } from 'tsdown'
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), '..')
-const clientPreset = join(packageRoot, '../../../../packages/client/tsdown.client.ts')
+const clientPreset = process.env.DSH_CLIENT_PRESET?.trim()
+  || join(packageRoot, '../../../../packages/client/tsdown.client.ts')
 const { clientBundle } = await import(pathToFileURL(clientPreset).href)
 const configs = clientBundle('dsh-git-dashboard', ['lib/types/index.js'])({})
 const clientConfigs = configs.filter(config => config.name === 'dsh-git-dashboard/client')

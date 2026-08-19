@@ -1,25 +1,21 @@
 {
-  "extends": "../../../../tsconfig.base.json",
   "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false,
     "rootDir": "src",
     "outDir": "lib/types",
-    "paths": {
-      "@deepseek-ai/cordis": ["../../../../vendor/cordis/src"],
-      "@deepseek-ai/schemastery": ["../../../../vendor/schemastery/src"],
-      "@deepseek-ai/dsh-typert-protocol": ["../../../../packages/typert/protocol/src/index.ts"],
-      "@deepseek-ai/dsh-subprocess": ["../../../../packages/subprocess/subprocess/src"],
-      "@deepseek-ai/dsh-timeout": ["../../../../packages/util/timeout/src"],
-      "@deepseek-ai/dsh-workspace": ["../../../../packages/workspace/workspace/src"],
-      "zod": ["../../../../packages/host/plugin-inventory/node_modules/zod"]
-    }
+    "types": ["node"]
   },
-  "include": ["src/index.ts", "src/types.ts", "src/git/**/*.ts"],
-  "references": [
-    { "path": "../../../../vendor/cordis" },
-    { "path": "../../../../vendor/schemastery" },
-    { "path": "../../../../packages/subprocess/subprocess" },
-    { "path": "../../../../packages/util/timeout" },
-    { "path": "../../../../packages/typert/protocol" },
-    { "path": "../../../../packages/workspace/workspace" }
-  ]
+  "include": ["src/index.ts", "src/types.ts", "src/remote.ts", "src/git/**/*.ts"]
 }
