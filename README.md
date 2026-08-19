@@ -27,24 +27,14 @@ DeepSeek Harness（`dsh`）的仓外只读 Git 工作区看板。安装到 web p
 
 clone 仅用于阅读源码、提 issue 或自行 fork 开发；与「给 dsh 装插件」无关。
 
-在 web profile 目录安装本包：
+在 web profile 目录安装本包（推荐 npm）：
 
 ```sh
 cd ~/.dsh/profiles/web
-pnpm add github:Sombrer0-1/dsh-git-dashboard
+pnpm add dsh-git-dashboard
 ```
 
-SSH：
-
-```sh
-pnpm add git+ssh://git@github.com:Sombrer0-1/dsh-git-dashboard.git
-```
-
-固定版本（推荐）：
-
-```sh
-pnpm add github:Sombrer0-1/dsh-git-dashboard#v0.1.0
-```
+也可从 GitHub 安装：`pnpm add github:Sombrer0-1/dsh-git-dashboard`（SSH：`git+ssh://git@github.com:Sombrer0-1/dsh-git-dashboard.git`）。固定版本可加 `@0.1.0` 或 `#v0.1.0`。
 
 在 profile 的 `package.json` 中，把 `dsh-git-dashboard` 写入 `dsh.profile.bundles`，排在 `@deepseek-ai/dsh-base`（及已有 web bundle）之后：
 
